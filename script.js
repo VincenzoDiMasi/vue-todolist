@@ -23,9 +23,60 @@ Bonus:
 const app = Vue.createApp({
     data(){
         return {
-
+            tasks: [
+                {
+                    text: 'Inventare il blallo',
+                    done : false,
+                },
+                {
+                    text: 'Pettinare le bambole',
+                    done : false,
+                },
+                {
+                    text: 'Sciogliere le trecce ai cavalli',
+                    done : false,
+                },
+                {
+                    text: 'Aggiungere sale in zucca',
+                    done : true,
+                },
+                {
+                    text: 'Andare alla fiera dell est',
+                    done : false,
+                },
+                {
+                    text: 'Chiudersi in bagno',
+                    done : false,
+                },
+              ],
+            newText : '',
+            textDecoration : 'text-decoration-line-through',  
         }
-    }
+    },
+    
+    computed:{
+        newTask(){
+         let newTaskObject;
+        return newTaskObject = {
+             text: this.newText,
+             done : false,
+         }
+        }
+     },
+
+     methods:{
+         addNewTask(){
+             this.tasks.push(this.newTask);
+             this.newText = '';
+         },
+         deleteTask(index){
+             this.tasks.splice(index,1);
+         },
+         doneTask(index){  
+             this.tasks[index].done = !this.tasks[index].done;
+         }
+         
+     }
 });
 
 app.mount('#root')
