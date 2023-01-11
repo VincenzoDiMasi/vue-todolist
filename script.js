@@ -53,7 +53,7 @@ const app = Vue.createApp({
             textDecoration : 'text-decoration-line-through',  
         }
     },
-    
+
     computed:{
         newTask(){
          let newTaskObject;
@@ -66,8 +66,11 @@ const app = Vue.createApp({
 
      methods:{
          addNewTask(){
-             this.tasks.push(this.newTask);
-             this.newText = '';
+            if (this.newText) {
+                this.tasks.push(this.newTask);
+                this.newText = '';
+            }
+             
          },
          deleteTask(index){
              this.tasks.splice(index,1);
