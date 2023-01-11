@@ -37,7 +37,7 @@
                 <h2 class="my-3">ToDo List:</h2>
 
                 <div class="input-group mb-2">
-                    <input type="text" class="form-control" placeholder="Aggiungi qualcosa da fare" v-model.trim='newText' @keyup.enter="addNewTask">
+                    <input type="text" class="form-control" placeholder="Aggiungi qualcosa da fare" v-model.trim='newText' @keyup.enter="addNewTask" @keyup.esc="deleteTask">
                     <button class="btn btn-outline-success" type="button" @click="addNewTask">Add</button>
                 </div>
 

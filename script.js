@@ -77,8 +77,8 @@ const app = Vue.createApp({
          },
          doneTask(index){  
              this.tasks[index].done = !this.tasks[index].done;
-         }
-         
+         },
+        
      }
 });
 
